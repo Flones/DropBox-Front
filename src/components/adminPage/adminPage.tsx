@@ -1,12 +1,12 @@
 import { withStyles, WithStyles } from '@material-ui/core/styles'
 import React, { PureComponent } from 'react'
-import createStylesRestPass, { CreateRestpass } from './resetPasswordStyles'
+import createStylesAdmin, { CreateAdmin } from './adminPageStyles'
 
 interface P{}
 interface S{} 
 
-class ResetPasswodPage extends PureComponent<P & WithStyles<CreateRestpass>, S> {
-  public static Display = withStyles(createStylesRestPass as any)(ResetPasswodPage) as React.ComponentType<P>
+class AdminPage extends PureComponent<P & WithStyles<CreateAdmin>, S> {
+  public static Display = withStyles(createStylesAdmin as any)(AdminPage) as React.ComponentType<P>
   render() {
     const {classes} = this.props 
 
@@ -17,5 +17,4 @@ class ResetPasswodPage extends PureComponent<P & WithStyles<CreateRestpass>, S> 
       )
   }
 }
-export default ResetPasswodPage
-
+export default AdminPage

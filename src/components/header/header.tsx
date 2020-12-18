@@ -21,8 +21,8 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
            </Grid>
             <Grid item className={classes.lienNav}>
             <li><Link to="/">Acceuil</Link></li>
-            <li><Link to="/">Connexion</Link></li>
-            <li><Link to="/">Inscription</Link></li>
+            <li><Link to="/inscription">inscription</Link></li>
+            <li><Link to="/connexion">connexion</Link></li>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/">Home</Link></li>
             </Grid>
