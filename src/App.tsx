@@ -25,7 +25,6 @@ const  App = () => {
         <Route path="/profil"><ProfilPage.Display/> </Route> 
         <Route path="/editerCode"><Codepage.Display/> </Route>        
         <Route path="/admin"><AdminPage.Display/> </Route>        
-        <Route path="/profil"><ProfilPage.Display/> </Route>
         <Route path="/pageErreur"><ErrorPage.Display/> </Route>        
       </Switch>
     </BrowserRouter>
