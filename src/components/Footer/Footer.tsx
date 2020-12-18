@@ -12,7 +12,7 @@ class Footer extends PureComponent<P & WithStyles<CreateFooter>, S> {
 
     return (
        <div>
-           <p className={classes.root}>footer page </p>
+           <p className={classes.root}>footer </p>
        </div>
       )
   }

@@ -12,7 +12,7 @@ class AdminPage extends PureComponent<P & WithStyles<CreateAdmin>, S> {
 
     return (
        <div>
-           <p className={classes.root}>Page de rénitialisation du mot de passe</p>
+           <p className={classes.root}>Page d'administration</p>
        </div>
       )
   }

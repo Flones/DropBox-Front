@@ -12,7 +12,7 @@ class Codepage extends PureComponent<P & WithStyles<CreateCodePage>, S> {
 
     return (
        <div>
-           <p className={classes.root}>Page de rénitialisation du mot de passe</p>
+           <p className={classes.root}>Page pour éditer le code</p>
        </div>
       )
   }

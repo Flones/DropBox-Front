@@ -2,7 +2,6 @@ import React, { Fragment, PureComponent } from 'react'
 import { Grid,  WithStyles } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import makeStylesHeader, { CreateHeader } from './headerStyles';
-import {Link} from 'react-router-dom';
 
 
 interface P{}
@@ -20,11 +19,11 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
              <span>DropBoite</span>
            </Grid>
             <Grid item className={classes.lienNav}>
-            <li><Link to="/">Acceuil</Link></li>
-            <li><Link to="/inscription">inscription</Link></li>
-            <li><Link to="/connexion">connexion</Link></li>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/">Home</Link></li>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="/inscription">inscription</a></li>
+            <li><a href="/connexion">connexion</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             </Grid>
             </Grid>
        </Fragment>
