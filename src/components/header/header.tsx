@@ -1,7 +1,13 @@
-import React, { Fragment, PureComponent } from 'react'
-import { Grid,  WithStyles } from '@material-ui/core'
+import React, { PureComponent } from 'react'
+import {  WithStyles } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import makeStylesHeader, { CreateHeader } from './headerStyles';
+
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 
 interface P{}
@@ -13,22 +19,35 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
     const {classes} = this.props 
 
     return (
-       <Fragment>
-         <Grid item className={classes.headerBar} >
-           <Grid item >
-             <span>DropBoite</span>
-           </Grid>
-              <Grid item className={classes.lienNav}>
-              <li><a href="/">Accueil</a></li>
-              <li><a href="/inscription">Inscription</a></li>
-              <li><a href="/connexion">Connexion</a></li>
-              <li><a href="/">Home</a></li>
-              <li><a href="/">Home</a></li>
-              </Grid>
-            </Grid>
-       </Fragment>
+       <div className={classes.root}> 
+        <AppBar position="static" className={classes.navBar}>
+          <Toolbar>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            </IconButton>
+            <Typography variant="h2" className={classes.title}>
+              DropBoite
+            </Typography>
+            <Button color="inherit">Acceuil</Button>
+            <Button color="inherit">Connexion</Button>
+          </Toolbar>
+        </AppBar>
+    </div>
       )
   }
 }
 
 export default Header
+
+
+
+
+// eslint-disable-next-line no-lone-blocks
+{/* <Grid item className={classes.headerBar} >
+           <Grid item >
+             <span>DropBoite <MenuBookIcon/> </span>
+           </Grid>
+            <Grid item className={classes.lienNav}>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="/inscription">inscription</a></li>
+            </Grid>
+            </Grid> */}
