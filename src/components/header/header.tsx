@@ -27,7 +27,7 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
             <Typography variant="h2" className={classes.title}>
               DropBoite
             </Typography>
-            <Button color="inherit">Accueil</Button>
+            <Button color="inherit">Acceuil</Button>
             <Button color="inherit">Connexion</Button>
           </Toolbar>
         </AppBar>
