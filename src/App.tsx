@@ -1,20 +1,22 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+
 import Header from './components/header/Header';
 import HomePage from './components/home/HomePage';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import RegistrationPage from './components/registration/RegistrationPage';
 import Forgotpassword from './components/forgotPassword/ForgotPasswordPage';
 import LoginPage from './components/login/LoginPage';
 import ResetPasswodPage from './components/resetpassword/ResetPasswordPage';
+import ProfilPage from './components/profilPage/ProfilPage';
 import Codepage from './components/codePage/CodePage';
 import AdminPage from './components/adminPage/AdminPage';
 import ErrorPage from './components/errorPage/ErrorPage';
-import ProfilPage from './components/profilPage/ProfilPage';
 
 
 const  App = () => {
   return (    
-    <BrowserRouter>
+    <div className="app">
+      <BrowserRouter>
       <Header.Display/>
       <Switch>
         <Route path="/"> <HomePage.Display/> </Route>
@@ -28,6 +30,7 @@ const  App = () => {
         <Route path="/pageErreur"><ErrorPage.Display/> </Route>        
       </Switch>
     </BrowserRouter>
+    </div>
   );
 }
 
