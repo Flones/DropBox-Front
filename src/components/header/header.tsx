@@ -18,13 +18,13 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
            <Grid item >
              <span>DropBoite</span>
            </Grid>
-            <Grid item className={classes.lienNav}>
-            <li><a href="/">Acceuil</a></li>
-            <li><a href="/inscription">inscription</a></li>
-            <li><a href="/connexion">connexion</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Home</a></li>
-            </Grid>
+              <Grid item className={classes.lienNav}>
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/inscription">Inscription</a></li>
+              <li><a href="/connexion">Connexion</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/">Home</a></li>
+              </Grid>
             </Grid>
        </Fragment>
       )

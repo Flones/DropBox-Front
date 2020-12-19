@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './components/Header/header';
-import HomePage from './components/Home/homePage';
+import Header from './components/header/Header';
+import HomePage from './components/home/HomePage';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import RegistrationPage from './components/Registration/RegistrationPage';
-import Forgotpassword from './components/ForgotPassword/ForgotPasswordPage';
-import LoginPage from './components/Login/LoginPage';
-import ResetPasswodPage from './components/resetpassword/resetPasswordPage';
-import ProfilPage from './components/profilPage/profilPage';
-import Codepage from './components/codePage/codePage';
-import AdminPage from './components/adminPage/adminPage';
-import ErrorPage from './components/erroPage/erroPage';
+import RegistrationPage from './components/registration/RegistrationPage';
+import Forgotpassword from './components/forgotPassword/ForgotPasswordPage';
+import LoginPage from './components/login/LoginPage';
+import ResetPasswodPage from './components/resetpassword/ResetPasswordPage';
+import Codepage from './components/codePage/CodePage';
+import AdminPage from './components/adminPage/AdminPage';
+import ErrorPage from './components/errorPage/ErrorPage';
+import ProfilPage from './components/profilPage/ProfilPage';
 
 
 const  App = () => {
