@@ -11,10 +11,10 @@ import Codepage from './components/codePage/codePage';
 import AdminPage from './components/adminPage/adminPage';
 import ErrorPage from './components/erroPage/erroPage';
 
-
 const  App = () => {
   return (    
-    <BrowserRouter>
+    <div className="app">
+      <BrowserRouter>
       <Header.Display/>
       <Switch>
         <Route path="/"> <HomePage.Display/> </Route>
@@ -28,6 +28,7 @@ const  App = () => {
         <Route path="/pageErreur"><ErrorPage.Display/> </Route>        
       </Switch>
     </BrowserRouter>
+    </div>
   );
 }
 

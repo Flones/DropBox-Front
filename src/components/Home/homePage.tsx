@@ -18,8 +18,11 @@ class HomePage extends PureComponent<P & WithStyles<CreateHome>, S> {
               <Container maxWidth="md">
                 <p className={classes.header}>Bienvenue sur l'application <br/><span className={classes.appName} >DropBoite</span></p>
                 <div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eum beatae ipsam tempora obcaecati? Officiis, quia amet sed esse 
-                    accusamus ipsum voluptate? Dignissimos quis natus error voluptatem in itaque sunt?</p>
+                  <p className={classes.messageText}> Un site web de partage de
+documents collaboratifs ou personnels. Accessible via différentes plateformes
+en se connectant à son compte ou en en créant un. Un outil de modification de
+fichier directement depuis l’application.
+</p>
                 </div>
               </Container>
               </div>

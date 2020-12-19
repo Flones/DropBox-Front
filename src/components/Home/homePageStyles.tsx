@@ -1,6 +1,6 @@
 import { createStyles, Theme } from "@material-ui/core";
 
-export type CreateHome = ("header" | "appName" | "root") ; 
+export type CreateHome = ("header" | "appName" | "root" | "messageText") ; 
 
 
 const createStylesHomePage = (theme: Theme) => createStyles<CreateHome, {}>({
@@ -28,7 +28,14 @@ const createStylesHomePage = (theme: Theme) => createStyles<CreateHome, {}>({
     color: 'blue',
     fontWeight: 900,
     fontSize: 50
-  }
+  },
+
+  messageText:{
+    textAlign: 'center',
+    fontWeight: 400,
+    fontFamily: 'Lobster, cursive',
+    fontSize : '30px',
+  },
   
 });
 
