@@ -1,6 +1,6 @@
 import { withStyles, WithStyles } from '@material-ui/core/styles'
 import React, { PureComponent } from 'react'
-import createStylesLostPassword, { CreateLostPassword } from './ForgotPasswordStyles'
+import createStylesLostPassword, { CreateLostPassword } from './forgotPasswordStyles'
 
 interface P{}
 interface S{} 
