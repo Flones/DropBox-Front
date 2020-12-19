@@ -1,6 +1,7 @@
 import { createStyles, Theme } from "@material-ui/core";
 
-export type CreateHome = ("header" | "appName" | "root" | "messageText" | "CreerCompte"| "margintop") ; 
+export type CreateHome = ("header" | "appName" | "root" | "messageText" 
+| "CreerCompte"| "margintop"| "colorButton" ) ; 
 
 
 const createStylesHomePage = (theme: Theme) => createStyles<CreateHome, {}>({
@@ -46,6 +47,9 @@ const createStylesHomePage = (theme: Theme) => createStyles<CreateHome, {}>({
     color: 'blue',
     fontFamily: 'Lobster, cursive',
     fontSize : '30px',
+  },
+  colorButton: {
+    color: '0d47a1'
   } 
   
 });
