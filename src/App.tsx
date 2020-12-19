@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+
+import Header from './components/header/Header';
 import HomePage from './components/home/HomePage';
 import RegistrationPage from './components/registration/RegistrationPage';
 import Forgotpassword from './components/forgotPassword/ForgotPasswordPage';
@@ -9,7 +11,6 @@ import ProfilPage from './components/profilPage/ProfilPage';
 import Codepage from './components/codePage/CodePage';
 import AdminPage from './components/adminPage/AdminPage';
 import ErrorPage from './components/errorPage/ErrorPage';
-import Header from './components/header/header';
 
 
 const  App = () => {
