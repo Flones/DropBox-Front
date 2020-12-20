@@ -2,6 +2,7 @@ import { WithStyles,  Container, CssBaseline } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
 import React, { PureComponent} from 'react'
+import { Link } from 'react-router-dom'
 import createStylesHomePage, {  CreateHome } from './homePageStyles'
 
 
@@ -26,7 +27,8 @@ class HomePage extends PureComponent<P & WithStyles<CreateHome>, S> {
                 </div>
                 <Container maxWidth="sm">
                   <div className={classes.margintop}>
-                    <p className={classes.CreerCompte}>Créer votre compte <Button variant="contained" color="primary">Inscription</Button></p>
+                    <p className={classes.CreerCompte}>Créer votre compte  &nbsp;
+                    <Link to="/inscription"><Button variant="contained" color="primary">Inscription</Button></Link></p>
                   </div>
                 </Container>
               </Container>
