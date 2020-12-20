@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+
+
 import AdminPage from './components/adminPage/AdminPage';
 import CodePage from './components/codePage/CodePage';
 import ErrorPage from './components/errorPage/ErrorPage';
@@ -12,6 +14,7 @@ import RegistrationPage from './components/registration/RegistrationPage';
 import ResetPasswodPage from './components/resetpassword/ResetPasswordPage';
 
 const  App = () => {
+  // exact est par défaut à true et permet de définir la condition pour la page en question
   return (    
     <BrowserRouter>
       <Header.Display/>
