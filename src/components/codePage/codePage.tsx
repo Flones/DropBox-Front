@@ -4,7 +4,7 @@ import createStylesCodePage, { CreateCodePage } from './codePageStyles'
 
 interface P{}
 interface S{} 
-
+// page permettant à l'utilisateur d'éditer le code
 class CodePage extends PureComponent<P & WithStyles<CreateCodePage>, S> {
   public static Display = withStyles(createStylesCodePage as any)(CodePage) as React.ComponentType<P>
   render() {

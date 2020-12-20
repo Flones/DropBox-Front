@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import createStylesHeader, { CreateHeader } from './headerStyles';
 
-
 interface P{}
 interface S{} 
 
@@ -39,15 +38,3 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
 export default Header
 
 
-
-
-// eslint-disable-next-line no-lone-blocks
-{/* <Grid item className={classes.headerBar} >
-           <Grid item >
-             <span>DropBoite <MenuBookIcon/> </span>
-           </Grid>
-            <Grid item className={classes.lienNav}>
-            <li><a href="/">Acceuil</a></li>
-            <li><a href="/inscription">inscription</a></li>
-            </Grid>
-            </Grid> */}

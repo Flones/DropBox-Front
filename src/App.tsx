@@ -25,7 +25,7 @@ const  App = () => {
         <Route path="/motdePasseOublie"> <Forgotpassword.Display/> </Route> 
         <Route path="/renitialisation"> <ResetPasswodPage.Display/> </Route>        
         <Route path="/profil"><ProfilPage.Display/> </Route> 
-        <Route path="/editerCode"> <CodePage.Display/> </Route>        
+        <Route path="/editerCode"> <CodePage.Display/> </Route>         
         <Route path="/admin"><AdminPage.Display/> </Route>        
         <Route path="/pageErreur"><ErrorPage.Display/> </Route>        
       </Switch>
