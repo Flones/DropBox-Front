@@ -5,8 +5,8 @@ import createStylesCodePage, { CreateCodePage } from './codePageStyles'
 interface P{}
 interface S{} 
 
-class Codepage extends PureComponent<P & WithStyles<CreateCodePage>, S> {
-  public static Display = withStyles(createStylesCodePage as any)(Codepage) as React.ComponentType<P>
+class CodePage extends PureComponent<P & WithStyles<CreateCodePage>, S> {
+  public static Display = withStyles(createStylesCodePage as any)(CodePage) as React.ComponentType<P>
   render() {
     const {classes} = this.props 
 
@@ -17,4 +17,4 @@ class Codepage extends PureComponent<P & WithStyles<CreateCodePage>, S> {
       )
   }
 }
-export default Codepage
+export default CodePage

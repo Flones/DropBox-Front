@@ -1,20 +1,20 @@
 import React, { PureComponent } from 'react'
 import {  WithStyles } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import makeStylesHeader, { CreateHeader } from './headerStyles';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import createStylesHeader, { CreateHeader } from './headerStyles';
 
 
 interface P{}
 interface S{} 
 
 class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
-  public static Display = withStyles(makeStylesHeader as any)(Header) as React.ComponentType<P>
+  public static Display = withStyles(createStylesHeader as any)(Header) as React.ComponentType<P>
   render() {
     const {classes} = this.props 
 
