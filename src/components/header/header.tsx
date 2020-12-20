@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import createStylesHeader, { CreateHeader } from './headerStyles';
+import { Link } from 'react-router-dom';
 
 interface P{}
 interface S{} 
@@ -26,8 +27,8 @@ class Header extends PureComponent<P & WithStyles<CreateHeader>, S> {
             <Typography variant="h2" className={classes.title}>
               DropBoite
             </Typography>
-            <Button color="inherit">Acceuil</Button>
-            <Button color="inherit">Connexion</Button>
+            <Link to="/"><Button color="inherit">Acceuil</Button></Link>
+            <Link to="/connexion"><Button color="inherit">Connexion</Button></Link>
           </Toolbar>
         </AppBar>
     </div>
