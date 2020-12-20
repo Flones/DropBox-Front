@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
-import { LockOutlined } from '@material-ui/icons'
+import LockIcon from '@material-ui/icons/Lock';
 
 
 interface P{}
@@ -25,11 +25,11 @@ class ForgotPasswordPage extends PureComponent<P & WithStyles<CreateForgotPasswo
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlined/>
+          <LockIcon />
         </Avatar>
         {/* <Button onClick={() => { alert('Tous les champs doivent être rempli') }}>Attention</Button> */}
         <Typography component="h1" variant="h5">
-        <div className={classes.titleInscription}>Créer votre compte ✍</div>
+        <div className={classes.titleInscription}>Choisissez un nouveau mot de passe</div>
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={3}>
