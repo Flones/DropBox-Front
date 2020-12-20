@@ -1,6 +1,6 @@
 import { createStyles, Theme } from "@material-ui/core";
 
-export type CreateRegister = ("root" |"paper" |"avatar"|"form"|"submit"|"centerButton" 
+export type CreateRegister = ("root"|"BorderPaper" |"paper" |"avatar"|"form"|"submit"|"centerButton" 
 |"titleInscription"|"titleConnexion"|"Connexion") ;
 
 const createStylesRegister= (theme: Theme) => createStyles<CreateRegister, {}>({
@@ -8,8 +8,14 @@ const createStylesRegister= (theme: Theme) => createStyles<CreateRegister, {}>({
         backgroundColor: 'linear-gradient(.5deg, #1b1b1b, #222, #1b1b1b)',
         borderRadius:'5px'
     },
+    BorderPaper:{
+      padding :30,
+      height:'80vh',
+      width:500, 
+      margin:"30px auto"
+  },
     paper: {
-        marginTop: theme.spacing(5),
+        marginTop: theme.spacing(3),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -20,10 +26,10 @@ const createStylesRegister= (theme: Theme) => createStyles<CreateRegister, {}>({
       },
       form: {
         width: '100%',
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(2),
       },
       submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(2, 0, 2),
         alignItems:'center'
       },
       centerButton:{
