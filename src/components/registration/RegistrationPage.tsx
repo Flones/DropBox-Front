@@ -10,6 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import { LockOutlined } from '@material-ui/icons'
+import { Paper } from '@material-ui/core'
 
 
 interface P{}
@@ -24,16 +25,15 @@ class RegistrationPage extends PureComponent<P & WithStyles<CreateRegister>, S> 
       <Container maxWidth="sm" className={classes.root}>
         <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
+      <Paper elevation={10} className={classes.paper + ' ' + classes.BorderPaper}>
         <Avatar className={classes.avatar}>
           <LockOutlined/>
         </Avatar>
-        {/* <Button onClick={() => { alert('Tous les champs doivent être rempli') }}>Attention</Button> */}
         <Typography component="h1" variant="h5">
         <div className={classes.titleInscription}>Créer votre compte ✍</div>
         </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={3}>
+        <form className={classes.form}>
+          <Grid container spacing={2}>
           <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -91,14 +91,14 @@ class RegistrationPage extends PureComponent<P & WithStyles<CreateRegister>, S> 
              inscription
           </Button>
           </Grid>
+        </form>
           <Grid container justify="center">
           <div className={classes.titleConnexion}>Si vous avez déjà un compte alors?</div> &nbsp;         
               <Link to="/connexion">
                 <span className={classes.Connexion}> Connectez-vous</span>
               </Link>
           </Grid>
-        </form>
-      </div>
+      </Paper>
     </Container>
       </Container>
       )
