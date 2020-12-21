@@ -44,9 +44,9 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                         Forgot password ?
                 </Link>
                 </Typography>
-                <Typography > Créer mon compte
+                <Typography >
                      <Link to="/inscription">
-                        Inscription
+                     Créer mon compte
                 </Link>
                 </Typography>
                 </form>
