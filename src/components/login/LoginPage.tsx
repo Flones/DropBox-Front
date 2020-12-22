@@ -1,6 +1,7 @@
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@material-ui/core'
 import { withStyles, WithStyles } from '@material-ui/core/styles'
 import { LockOutlined } from '@material-ui/icons'
+import FacebookIcon from '@material-ui/icons/Facebook';
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import createStylesLogin, { Createlogin } from './loginStyles'
@@ -21,10 +22,12 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
 
     return (
        <Grid container  justify="center" className={classes.root}>
-            <Grid>
+            <Grid >
             <Paper elevation={10} className={classes.paper}>
                 <Grid justify="center">
-                     <Avatar className={classes.avatar}><LockOutlined/></Avatar>
+                    <Grid container direction="row" justify="center" alignItems="center">
+                      <Avatar className={classes.avatar}><LockOutlined/></Avatar>
+                    </Grid>
                     <h2 className={classes.titleConnexion}>Connexion✍</h2>
                 </Grid>
                 <TextField 
@@ -62,13 +65,16 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
             <Grid>
             <Paper elevation={10} className={classes.paper}>
                 <Grid justify="center">
-                     <Avatar className={classes.avatar}>réseaux sociaux</Avatar>
+                      <Grid container direction="row" justify="center" alignItems="center" >
+                        <Avatar className={classes.avatar}><FacebookIcon /></Avatar>
+                        <Avatar className={classes.avatar}><FacebookIcon /></Avatar> {/* logo google à mettre */}
+                      </Grid>
                     <h2 className={classes.titleConnexion}>Réseaux sociaux</h2>
                 </Grid>
 
                 <div className={classes.reseauButton}>
                 <GoogleLogin
-                  clientId="Par nos identifiant nodejs"
+                  clientId="Par nos identifiants nodejs"
                   buttonText="Se connecter avec google"
                   onSuccess={responseGoogle}
                   cookiePolicy={'single_host_origin'}
@@ -76,9 +82,9 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 </div>                
                 <div className={classes.reseauButton}>   
                  <FacebookLogin
-                    appId="Par les identifiant de FaceBook"
+                    appId="Par les identifiants de FaceBook"
                     autoLoad={false}
-                    fields="name,email,picture"
+                    fields="name, email, picture"
                     callback={responseFacebook}
                     icon="fa-facebook"
                       />
