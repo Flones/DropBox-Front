@@ -33,7 +33,7 @@ class RegistrationPage extends PureComponent<P & WithStyles<CreateRegister>, S> 
         <div className={classes.titleInscription}>Créer votre compte ✍</div>
         </Typography>
         <form className={classes.form}>
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
           <Grid item xs={12}>
               <TextField
                 variant="outlined"

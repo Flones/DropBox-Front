@@ -30,6 +30,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                     </Grid>
                     <h2 className={classes.titleConnexion}>Connexion✍</h2>
                 </Grid>
+                <form>
                 <TextField 
                 required
                 fullWidth
@@ -57,9 +58,9 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                      <div className={classes.titleMessage}> Si vous n'avez pas de compte &nbsp;</div> <br/>
                      <Link to="/inscription" >
                        <div className={classes.Connexion}> Inscription</div>
-
                 </Link>
                 </Grid>
+                </form>
             </Paper>
             </Grid>
               

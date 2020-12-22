@@ -21,7 +21,6 @@ class ForgotPasswordPage extends PureComponent<P & WithStyles<CreateForgotPasswo
 
     return (
       <Container maxWidth="sm" className={classes.root}>
-        <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -29,7 +28,7 @@ class ForgotPasswordPage extends PureComponent<P & WithStyles<CreateForgotPasswo
         </Avatar>
         {/* <Button onClick={() => { alert('Tous les champs doivent être rempli') }}>Attention</Button> */}
         <Typography component="h1" variant="h5">
-        <div className={classes.titleInscription}>Choisissez un nouveau mot de passe</div>
+        <div className={classes.titleInscription}>Mot de passe oublié</div>
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={3}>
@@ -41,31 +40,7 @@ class ForgotPasswordPage extends PureComponent<P & WithStyles<CreateForgotPasswo
                 id="email"
                 label="Adresse email"
                 name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Mot de passe"
-                type="password"
-                id="password"
-                //autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="confPassword"
-                label="Confirmez votre mot de passe"
-                type="password"
-                id="password"
-                //autoComplete="current-password"
+                // autoComplete="email"
               />
             </Grid>
           </Grid>
@@ -76,13 +51,12 @@ class ForgotPasswordPage extends PureComponent<P & WithStyles<CreateForgotPasswo
             variant="contained"
             color="primary"
             className={classes.submit}>
-             Changer de mot de passe
+             M'envoyer les instructions par email
           </Button>
           </Grid>
         </form>
       </div>
     </Container>
-      </Container>
       )
   }
 }

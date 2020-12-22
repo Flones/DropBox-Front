@@ -6,7 +6,8 @@ export type CreateForgotPassword = ("root" |"paper" |"avatar"|"form"|"submit"|"c
 const createStylesForgotPassword= (theme: Theme) => createStyles<CreateForgotPassword, {}>({
     root:{
         backgroundColor: 'linear-gradient(.5deg, #1b1b1b, #222, #1b1b1b)',
-        borderRadius:'5px'
+        borderRadius:'5px',
+        marginTop: '110px',
     },
     paper: {
         marginTop: theme.spacing(5),
