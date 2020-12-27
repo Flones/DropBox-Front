@@ -2,23 +2,35 @@ import { Avatar, Button, Grid, Paper, TextField, Typography } from '@material-ui
 import { withStyles, WithStyles } from '@material-ui/core/styles'
 import { LockOutlined } from '@material-ui/icons'
 import FacebookIcon from '@material-ui/icons/Facebook';
-import React, { PureComponent } from 'react'
-import { Link } from 'react-router-dom'
+import React, { PureComponent, useState } from 'react'
+import { Link} from 'react-router-dom'
 import createStylesLogin, { Createlogin } from './loginStyles'
 import { GoogleLogin } from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
 
+interface Login { email?: string; password?: string; err?: string; success?: string  }
 interface P{}
-interface S{} 
+interface S{login: Login} 
+
 
 class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
+  public state: Readonly<S> = { login: {email: '', password: '', err: '', success: ''} }
   public static Display = withStyles(createStylesLogin as any)(LoginPage) as React.ComponentType<P>
   render() {
+
     const {classes} = this.props 
+    const { login}  = this.state
+
+    const [user, setUser] = useState(initialState)
+
+    
+
+    // const {login.email, login.password, login.err, login.success} = user
+
+    
 
     //A faire plutard pour la connexion avec Google et Facebook
     const responseGoogle = async () =>{}
-    const responseFacebook = async () =>{}
+    // const responseFacebook = async () =>{}
 
     return (
        <Grid container  justify="center" className={classes.root}>
@@ -30,13 +42,14 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                     </Grid>
                     <h2 className={classes.titleConnexion}>Connexion✍</h2>
                 </Grid>
-                <form>
+                <form >
                 <TextField 
                 required
                 fullWidth
                 id="email"
                 label="Adresse email"
                 name="email"
+                value={login.email}
                 autoComplete="email"
                 />
                 <TextField 
@@ -45,6 +58,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 name="password"
                 label="Mot de passe"
                 type="password"
+                value={login.password}              
                 id="password"
                 autoComplete="current-password"
                  />
@@ -83,13 +97,13 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                   />
                 </div>                
                 <div className={classes.reseauButton}>   
-                 <FacebookLogin
+                 {/* <FacebookLogin
                     appId="Par les identifiants de FaceBook"
                     autoLoad={false}
                     fields="name, email, picture"
                     callback={responseFacebook}
                     icon="fa-facebook"
-                      />
+                      /> */}
                 </div>
             </Paper>
             </Grid>
