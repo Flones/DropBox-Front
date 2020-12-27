@@ -6,6 +6,7 @@ import React, { PureComponent, useState } from 'react'
 import { Link} from 'react-router-dom'
 import createStylesLogin, { Createlogin } from './loginStyles'
 import { GoogleLogin } from 'react-google-login';
+import axios from 'axios';
 
 interface Login { email?: string; password?: string; err?: string; success?: string  }
 interface P{}
@@ -22,16 +23,22 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
     
     const [user, setUser] = useState(login)
     const {email, password, err, success} = user
-    const handleChangeInput  = ()=>(e:React.ChangeEvent<HTMLInputElement>) =>{
+    const handleChangeInput  = e =>{
       const {name, value} = e.target
       setUser({...user, [name]:value, err: '', success: ''})
 
     }
-    const dispatch = useDispatch()
-    const history = useHistory()
-
+   
+    //soumission du formuaire
     const formSubmit = async e =>{
-      
+      e.preventDefault()
+      try {
+        const res = await axios.post('/user/inscription', {email, password})
+        console.log(res)
+      } catch (err) {
+        err.response.data.msg &&
+        setUser({...user, err: err.response.data.msg , success: ''})
+      }
     }
 
     
