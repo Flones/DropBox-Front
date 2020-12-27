@@ -20,7 +20,14 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
     const {classes} = this.props 
     const { login}  = this.state
 
-    const [user, setUser] = useState(initialState)
+    const [user, setUser] = useState(login)
+    const {email, password, err, success} = user
+    const handleChangeInput = e => {
+      const {name, value} = e.target
+      setUser({...user, [name]:value, err: '', success: ''})
+  }
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     
 
@@ -50,6 +57,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 label="Adresse email"
                 name="email"
                 value={login.email}
+                onChange={handleChangeInput} 
                 autoComplete="email"
                 />
                 <TextField 
@@ -60,6 +68,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 type="password"
                 value={login.password}              
                 id="password"
+                onChange={handleChangeInput} 
                 autoComplete="current-password"
                  />
                 <Button type='submit' color='primary' variant="contained" className={classes.Bouton} fullWidth>Connexion</Button>
