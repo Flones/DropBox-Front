@@ -38,7 +38,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
     const formSubmit = async (e:any) =>{
       e.preventDefault()
       try {
-        const res = await axios.post('/user/connexion', {email, password})
+        const res = await axios.post(API_URL+'/user/connexion', {email, password})
         console.log(res)
       } catch (err) {
         err.response.data.msg &&
