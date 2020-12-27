@@ -7,6 +7,7 @@ import { Link} from 'react-router-dom'
 import createStylesLogin, { Createlogin } from './loginStyles'
 import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
+import { showErrMessage, showSuccessMessage } from '../../utils/Notification';
 
 interface Login { email?: string; password?: string; err?: string; success?: string  }
 interface P{}
@@ -18,22 +19,26 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
   public static Display = withStyles(createStylesLogin as any)(LoginPage) as React.ComponentType<P>
   render() {
 
+    const API_URL = 'http://localhost:5000'
+
     const {classes} = this.props 
     const { login}  = this.state
+
+    
     
     const [user, setUser] = useState(login)
     const {email, password, err, success} = user
-    const handleChangeInput  = e =>{
+    const handleChangeInput  = (e: any) =>{
       const {name, value} = e.target
       setUser({...user, [name]:value, err: '', success: ''})
 
     }
    
-    //soumission du formuaire
-    const formSubmit = async e =>{
+    // soumission du formuaire
+    const formSubmit = async (e:any) =>{
       e.preventDefault()
       try {
-        const res = await axios.post('/user/inscription', {email, password})
+        const res = await axios.post('/user/connexion', {email, password})
         console.log(res)
       } catch (err) {
         err.response.data.msg &&
@@ -41,16 +46,12 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
       }
     }
 
-    
-
-    // const {login.email, login.password, login.err, login.success} = user
-
-    
 
     //A faire plutard pour la connexion avec Google et Facebook
     const responseGoogle = async () =>{}
     // const responseFacebook = async () =>{}
 
+     //onSubmit={formSubmit}
     return (
        <Grid container  justify="center" className={classes.root}>
             <Grid >
@@ -60,8 +61,10 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                       <Avatar className={classes.avatar}><LockOutlined/></Avatar>
                     </Grid>
                     <h2 className={classes.titleConnexion}>Connexion✍</h2>
+                    {err && showErrMessage(err)}
+                    {success && showSuccessMessage(success)}
                 </Grid>
-                <form onSubmit={formSubmit}>
+                <form >
                 <TextField 
                 required
                 fullWidth
@@ -69,7 +72,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 label="Adresse email"
                 name="email"
                 value={login.email}
-                onChange={handleChangeInput} 
+                // onChange={handleChangeInput} 
                 autoComplete="email"
                 />
                 <TextField 
@@ -80,7 +83,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 type="password"
                 value={login.password}              
                 id="password"
-                onChange={handleChangeInput} 
+                // onChange={handleChangeInput} 
                 autoComplete="current-password"
                  />
                 <Button type='submit' color='primary' variant="contained" className={classes.Bouton} fullWidth>Connexion</Button>
