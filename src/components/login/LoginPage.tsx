@@ -2,17 +2,18 @@ import { Avatar, Button, Grid, Paper, TextField, Typography } from '@material-ui
 import { withStyles, WithStyles } from '@material-ui/core/styles'
 import { LockOutlined } from '@material-ui/icons'
 import FacebookIcon from '@material-ui/icons/Facebook';
-import React, { PureComponent, useState } from 'react'
+import React, { PureComponent} from 'react'
 import { Link} from 'react-router-dom'
 import createStylesLogin, { Createlogin } from './loginStyles'
 import { GoogleLogin } from 'react-google-login';
-import axios from 'axios';
-import { showErrMessage, showSuccessMessage } from '../../utils/Notification';
+// import axios from 'axios';
+// import { showErrMessage, showSuccessMessage } from '../../utils/Notification';
+
+
 
 interface Login { email?: string; password?: string; err?: string; success?: string  }
 interface P{}
 interface S{login: Login} 
-
 
 class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
   public state: Readonly<S> = { login: {email: '', password: '', err: '', success: ''} }
@@ -24,34 +25,27 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
     const {classes} = this.props 
     const { login}  = this.state
 
-    
-    
-    const [user, setUser] = useState(login)
-    const {email, password, err, success} = user
-    const handleChangeInput  = (e: any) =>{
-      const {name, value} = e.target
-      setUser({...user, [name]:value, err: '', success: ''})
-
-    }
-   
-    // soumission du formuaire
-    const formSubmit = async (e:any) =>{
-      e.preventDefault()
-      try {
-        const res = await axios.post(API_URL+'/user/connexion', {email, password})
-        console.log(res)
-      } catch (err) {
-        err.response.data.msg &&
-        setUser({...user, err: err.response.data.msg , success: ''})
+    const onChangeEmail = () => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newEmail = e.target.value;
+      this.setState({ login: { email: newEmail} })
       }
-    }
 
+      
+    const onChangePassword = () => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newPass = e.target.value;
+      this.setState({ login: { password: newPass} })}
+
+    const validationForm = () => (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+       console.log(this.state.login);
+   }
+
+    
 
     //A faire plutard pour la connexion avec Google et Facebook
     const responseGoogle = async () =>{}
     // const responseFacebook = async () =>{}
-
-     //onSubmit={formSubmit}
+    
     return (
        <Grid container  justify="center" className={classes.root}>
             <Grid >
@@ -61,32 +55,37 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                       <Avatar className={classes.avatar}><LockOutlined/></Avatar>
                     </Grid>
                     <h2 className={classes.titleConnexion}>Connexion✍</h2>
-                    {err && showErrMessage(err)}
-                    {success && showSuccessMessage(success)}
+                    {/* {err && showErrMessage(err)}
+                    {success && showSuccessMessage(success)} */}
                 </Grid>
-                <form >
+                <form onSubmit={validationForm}>
+                <Grid item xs={12}>
                 <TextField 
                 required
                 fullWidth
                 id="email"
                 label="Adresse email"
                 name="email"
-                value={login.email}
-                // onChange={handleChangeInput} 
+                // value={login.email}
+                onChange={onChangeEmail} 
                 autoComplete="email"
                 />
+                </Grid>
+                <Grid item xs={12}>
                 <TextField 
                 required
                 fullWidth
                 name="password"
                 label="Mot de passe"
                 type="password"
-                value={login.password}              
+                // value={login.password}              
                 id="password"
-                // onChange={handleChangeInput} 
+                onChange={onChangePassword}
                 autoComplete="current-password"
                  />
+                 </Grid>
                 <Button type='submit' color='primary' variant="contained" className={classes.Bouton} fullWidth>Connexion</Button>
+                </form>
                 <Typography >
                      <Link to="/motdePasseOublie">
                         <span className={classes.Motdepasseoublie}>Forgot password ?</span>
@@ -98,7 +97,6 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                        <div className={classes.Connexion}> Inscription</div>
                 </Link>
                 </Grid>
-                </form>
             </Paper>
             </Grid>
               

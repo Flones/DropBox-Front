@@ -25,11 +25,11 @@ const classes = stylesNotification()
 
 
 // pour les messages d'erreurs'
-export const showErrMessage = (message:any) => {
+export const showErrMessage = (message:string) => {
     return <div className={classes.errMsg}> { message } </div>
 }
 
 // pour les messages de succes
-export const showSuccessMessage = (message:any) => {
+export const showSuccessMessage = (message:string) => {
     return <div className={classes.successMsg}> { message } </div>
 }
