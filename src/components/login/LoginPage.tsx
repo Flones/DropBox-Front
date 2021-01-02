@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import createStylesLogin, { Createlogin } from './loginStyles'
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import axios from 'axios';
 
 interface P{}
 interface S{} 
@@ -15,9 +16,17 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
   public static Display = withStyles(createStylesLogin as any)(LoginPage) as React.ComponentType<P>
   render() {
     const {classes} = this.props 
+    const API  = 'http://localhost:5000'
+    //Connexion de l'utilisateur avec Google
+    const responseGoogle = async (response:any) =>{
+      try {
+        //const res = await axios.post(API +'/user/googleLogin', {tokenId: response.tokenId})
+        console.log(response)
+      } catch (error) {
+          console.log("une erreur a été rencontrée")
+      }
+    }
 
-    //A faire plutard pour la connexion avec Google et Facebook
-    const responseGoogle = async () =>{}
     const responseFacebook = async () =>{}
 
     return (
@@ -76,7 +85,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
 
                 <div className={classes.reseauButton}>
                 <GoogleLogin
-                  clientId="Par nos identifiants nodejs"
+                  clientId="531304587187-r3odcr1i77rfkk4cekmg0b1ts0l0cvh4.apps.googleusercontent.com"
                   buttonText="Se connecter avec google"
                   onSuccess={responseGoogle}
                   cookiePolicy={'single_host_origin'}
