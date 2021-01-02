@@ -1,6 +1,6 @@
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@material-ui/core'
 import { withStyles, WithStyles } from '@material-ui/core/styles'
-import { LockOutlined } from '@material-ui/icons'
+import { Email, LockOutlined } from '@material-ui/icons'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import React, { PureComponent} from 'react'
 import { Link} from 'react-router-dom'
@@ -11,33 +11,41 @@ import { GoogleLogin } from 'react-google-login';
 
 
 
-interface Login { email?: string; password?: string; err?: string; success?: string  }
-interface P{}
-interface S{login: Login} 
+// interface Login { email?: string; password?: string; err?: string; success?: string  }
+ interface P{}
+interface S{} //login: Login
 
 class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
-  public state: Readonly<S> = { login: {email: '', password: '', err: '', success: ''} }
+ public state: Readonly<S> = { login: {email: '', password: '', err: '', success: ''} }
   public static Display = withStyles(createStylesLogin as any)(LoginPage) as React.ComponentType<P>
+  
   render() {
 
     const API_URL = 'http://localhost:5000'
 
+    this.state = {
+      email: '',
+      password:'',
+      err: '',
+      success: ''
+      
+    }
+
     const {classes} = this.props 
-    const { login}  = this.state
+    // const { login}  = this.state
 
     const onChangeEmail = () => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newEmail = e.target.value;
-      this.setState({ login: { email: newEmail} })
+      this.setState({email: e.target.value})
       }
 
       
-    const onChangePassword = () => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newPass = e.target.value;
-      this.setState({ login: { password: newPass} })}
+    // const onChangePassword = () => (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   const newPass = e.target.value;
+    //   this.setState({ login: { password: newPass} })}
 
     const validationForm = () => (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
-       console.log(this.state.login);
+       console.log(this.state);
    }
 
     
@@ -66,7 +74,7 @@ class LoginPage extends PureComponent<P & WithStyles<Createlogin>, S> {
                 id="email"
                 label="Adresse email"
                 name="email"
-                // value={login.email}
+                value={this.state.email}
                 onChange={onChangeEmail} 
                 autoComplete="email"
                 />
