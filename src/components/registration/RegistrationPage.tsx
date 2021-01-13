@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Grid from '@material-ui/core/Grid'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
@@ -30,6 +30,7 @@ const initialState = {
 const  RegistrationPage  = ()  => {
 
 const classes = createStylesRegister()
+const history = useHistory()
 const [user, setUser] = useState(initialState)
 const {username, email, password,passwordConf, err, success} = user
 
@@ -59,7 +60,9 @@ const onChangeValue = (e:any) =>{
     
     try {
       const res = await axios.post('/user/inscription', { username, email, password });
-      console.log(res)
+      setUser({...user, err: '', success: res.data.message})
+      localStorage.setItem('firstLogin', 'OK')
+      history.push("/connexion")
       
     } catch (err) {
       err.response.data.msg && 

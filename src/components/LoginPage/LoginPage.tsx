@@ -3,7 +3,8 @@ import { LockOutlined } from '@material-ui/icons'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import React, { useState } from 'react'
 import { Link, useHistory} from 'react-router-dom'
-// import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 import axios from 'axios';
 import { showErrMessage, showSuccessMessage } from '../../utils/Notification';
 import { useDispatch } from 'react-redux';
@@ -48,9 +49,35 @@ const  LoginPage  = ()  => {
     }
   }
 
-  // const responseGoogle = async () =>{}
-  // const responseFacebook = async () =>{}
- 
+  // connexion de l'utilisateur avec google
+  const responseGoogle = async (response: any) =>{
+    try {
+      const res = await axios.post('/user/google_login', {tokenId: response.tokenId})
+      setUser({...user, err:'', success: res.data.msg})
+      localStorage.setItem('firstLogin', "OK")
+      dispatch(dispatchLogin())
+      history.push('/profil')
+    } 
+    catch (err) {
+      err.response.data.msg && setUser({...user, err: err.response.data.msg, success: ''})
+    }
+  }
+
+  // connecter les utilisateurs avec leur compte facebook
+  const responseFacebook = async (response: any) =>{
+    try {
+      const {accessToken, userID} = response
+      const res = await axios.post('/user/facebook_login', {accessToken, userID})
+      setUser({...user, err:'', success: res.data.msg})
+      localStorage.setItem('firstLogin', 'OK')
+      dispatch(dispatchLogin())
+      history.push('/profil')
+  } catch (err) {
+      err.response.data.msg && 
+      setUser({...user, err: err.response.data.msg, success: ''})
+  }
+  }
+
       return (
          <Grid container  justify="center" className={classes.root}>
               <Grid >
@@ -115,21 +142,21 @@ const  LoginPage  = ()  => {
                   </Grid>
   
                   <div className={classes.reseauButton}>
-                  {/* <GoogleLogin
-                    clientId="Par nos identifiants nodejs"
+                  <GoogleLogin
+                    clientId="531304587187-r3odcr1i77rfkk4cekmg0b1ts0l0cvh4.apps.googleusercontent.com"
                     buttonText="Se connecter avec google"
                     onSuccess={responseGoogle}
                     cookiePolicy={'single_host_origin'}
-                    /> */}
+                    />
                   </div>                
                   <div className={classes.reseauButton}>   
-                   {/* <FacebookLogin
-                      appId="Par les identifiants de FaceBook"
+                   <FacebookLogin
+                      appId="418591362812792"
                       autoLoad={false}
                       fields="name, email, picture"
                       callback={responseFacebook}
                       icon="fa-facebook"
-                        /> */}
+                        />
                   </div>
               </Paper>
               </Grid>
