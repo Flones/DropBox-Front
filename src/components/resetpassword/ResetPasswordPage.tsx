@@ -22,7 +22,7 @@ class ResetPasswodPage extends PureComponent<P & WithStyles<CreateRestpass>, S> 
       <Typography component="h1" variant="h5">
       <div className={classes.titleInscription}>Rénitialisation du mot de passe</div>
       </Typography>
-      <form className={classes.form} noValidate>
+      <form className={classes.form} autoComplete="off">
         <Grid container spacing={3}>
 
           <Grid item xs={12}>

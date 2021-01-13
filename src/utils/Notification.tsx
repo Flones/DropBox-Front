@@ -16,7 +16,6 @@ const stylesNotification = makeStyles({
         textAlign: 'center',
         padding: '10px 0',
         letterSpacing: '1.3px'
-
     },
 
 })
@@ -25,11 +24,11 @@ const classes = stylesNotification()
 
 
 // pour les messages d'erreurs'
-export const showErrMessage = (message:string) => {
-    return <div className={classes.errMsg}> { message } </div>
+export const  showErrMessage = (message: any) => {
+    return <div className={classes.errMsg}> {message} </div>
 }
 
 // pour les messages de succes
-export const showSuccessMessage = (message:string) => {
-    return <div className={classes.successMsg}> { message } </div>
+export const showSuccessMessage= (message: any) => {
+    return <div className={classes.successMsg}> {message} </div>
 }
