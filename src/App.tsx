@@ -14,7 +14,6 @@ import useLocalStorage from './hooks/useLocalStorage';
 
 const  App = () => {
   
-
   // pour éditer le code
   const [html, setHtml] = useLocalStorage('html', '')
   const [css, setCss] = useLocalStorage('css', '')
@@ -66,7 +65,6 @@ const  App = () => {
           onChange={setCss}/>
           </div>
 
-          <div className="pane">
             <iframe
               srcDoc={srcDoc}
               title="output"
@@ -75,9 +73,8 @@ const  App = () => {
               width="100%"
               height="100%"
             />
-          </div>
 
-          <div  className="pane">
+          <div className="paneCOde2">
           <CodePage language="php"
           displayName="PHP"
           value={php}
@@ -93,7 +90,6 @@ const  App = () => {
           value={sql}
           onChange={setSql}/>
           </div>
-          
         </Route>         
         <Route exact path="/admin"><AdminPage.Display/> </Route>        
         <Route exact path="/pageErreur"><ErrorPage.Display/> </Route>        
