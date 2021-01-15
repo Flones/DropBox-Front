@@ -6,7 +6,7 @@ import { Link, useHistory} from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import axios from 'axios';
-import { showErrMessage, showSuccessMessage } from '../../utils/Notification';
+import {showErrmsg, showSuccessmsg} from '../../utils/Notification'
 import { useDispatch } from 'react-redux';
 import { dispatchLogin } from '../../redux/actions/authAction';
 
@@ -27,11 +27,18 @@ const  LoginPage  = ()  => {
   const classes = createStylesLogin()
   const {email, password, err, success} = user
 
-
   const onChangeValue = (e:any) =>{
     const {name, value} = e.target
         setUser({...user, [name]:value, err: '', success: ''})
   }
+
+  // function errorMessage() {
+  //   return  showErrmsg(err)
+  // }
+
+  // function successMessage() {
+  //   return  showSuccessmsg(success)
+  // }
 
 
   // traitement de la soumission du formulaire
@@ -39,7 +46,7 @@ const  LoginPage  = ()  => {
     e.preventDefault();
     try {
       const res = await axios.post('/user/connexion', { email, password });
-      setUser({...user, err: '', success: res.data.message})
+      setUser({...user, err: '', success: res.data.msg})
       localStorage.setItem('firstLogin', 'OK')
       dispatch(dispatchLogin())
       history.push("/profil")
@@ -89,8 +96,9 @@ const  LoginPage  = ()  => {
                       <h2 className={classes.titleConnexion}>Connexion✍</h2>
                   </Grid>
                   <span>
-                    {/* {err && showErrMessage(err)}  
-                    {success && showSuccessMessage(success)} */}
+                    {/* {err && showErrmsg(err)}  
+                    {success && showSuccessmsg(success)} */}
+                    
                   </span>
                   <form  onSubmit={onSubmitForm} noValidate autoComplete="off">
                   <Grid item xs={12}>

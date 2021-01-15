@@ -23,12 +23,12 @@ const stylesNotification = makeStyles({
 const classes = stylesNotification()
 
 
-// pour les messages d'erreurs'
-export const  showErrMessage = (message: any) => {
-    return <div className={classes.errMsg}> {message} </div>
+// pour les msgs d'erreurs'
+export const  showErrmsg = (msg: any) => {
+    return <div className={classes.errMsg}> {msg} </div>
 }
 
-// pour les messages de succes
-export const showSuccessMessage= (message: any) => {
-    return <div className={classes.successMsg}> {message} </div>
+// pour les msgs de succes
+export const showSuccessmsg= (msg: any) => {
+    return <div className={classes.successMsg}> {msg} </div>
 }

@@ -12,7 +12,7 @@ import {  makeStyles, Paper } from '@material-ui/core'
 import axios from 'axios'
 import { dispatchLogin } from '../../redux/actions/authAction'
 import { isEmail, isEmpty, isLength, isMatch } from '../../utils/validation'
-import { showErrMessage, showSuccessMessage } from '../../utils/Notification';
+import {showErrmsg, showSuccessmsg} from '../../utils/Notification'
 
 
 
@@ -60,7 +60,7 @@ const onChangeValue = (e:any) =>{
     
     try {
       const res = await axios.post('/user/inscription', { username, email, password });
-      setUser({...user, err: '', success: res.data.message})
+      setUser({...user, err: '', success: res.data.msg})
       localStorage.setItem('firstLogin', 'OK')
       history.push("/connexion")
       
@@ -81,8 +81,8 @@ const onChangeValue = (e:any) =>{
       </Avatar>
       <Typography component="h1" variant="h5">
       <div className={classes.titleInscription}>Créer votre compte ✍</div>
-        {/* {err && showErrMessage(err)}
-        {success && showSuccessMessage(success)} */}
+        {/* {err && showErrmsg(err)}
+        {success && showSuccessmsg(success)} */}
       </Typography>
       <form  onSubmit={onSubmitForm} noValidate autoComplete="off" className={classes.form}>
         <Grid container spacing={3}>

@@ -16,10 +16,8 @@ import ResetPasswodPage from './components/resetpassword/ResetPasswordPage';
 
 const  App = () => {
   
-  // const dispatch = useDispatch()
-  // const token  = useSelector(state => )
+  // const auth = useSelector(state => state.auth)
 
-  // exact est par défaut à true et permet de définir la condition pour la page en question
   return (    
     <BrowserRouter>
       <Header/>
@@ -27,8 +25,8 @@ const  App = () => {
         <Route exact path="/"> <HomePage.Display/> </Route>
         <Route exact path="/inscription"> <RegistrationPage/> </Route>        
         <Route exact path="/connexion"> <LoginPage/> </Route>        
-        <Route exact path="/motdePasseOublie"> <Forgotpassword.Display/> </Route> 
-        <Route exact path="/renitialisation"> <ResetPasswodPage.Display/> </Route>        
+        <Route exact path="/motdePasseOublie"> <Forgotpassword/> </Route> 
+        <Route exact path="/user/reset/:token"> <ResetPasswodPage/> </Route>        
         <Route exact path="/profil"><ProfilPage.Display/> </Route> 
         <Route exact path="/editerCode"> <CodePage.Display/> </Route>         
         <Route exact path="/admin"><AdminPage.Display/> </Route>        
