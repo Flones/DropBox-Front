@@ -31,6 +31,10 @@ body {
     flex-grow: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 .editor-container.collapsed .CodeMirror-scroll {
     position: absolute;
     overflow: hidden !important;

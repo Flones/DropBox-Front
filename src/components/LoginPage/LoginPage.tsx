@@ -32,14 +32,6 @@ const  LoginPage  = ()  => {
         setUser({...user, [name]:value, err: '', success: ''})
   }
 
-  // function errorMessage() {
-  //   return  showErrmsg(err)
-  // }
-
-  // function successMessage() {
-  //   return  showSuccessmsg(success)
-  // }
-
 
   // traitement de la soumission du formulaire
    const  onSubmitForm =  async (e: any) => {
@@ -57,13 +49,14 @@ const  LoginPage  = ()  => {
   }
 
   // connexion de l'utilisateur avec google
-  const responseGoogle = async (response: any) =>{
+  const responseGoogle = async (response: any) => {
     try {
       const res = await axios.post('/user/google_login', {tokenId: response.tokenId})
       setUser({...user, err:'', success: res.data.msg})
-      localStorage.setItem('firstLogin', "OK")
+      localStorage.setItem('firstLogin', 'OK')
       dispatch(dispatchLogin())
       history.push('/profil')
+            
     } 
     catch (err) {
       err.response.data.msg && setUser({...user, err: err.response.data.msg, success: ''})
