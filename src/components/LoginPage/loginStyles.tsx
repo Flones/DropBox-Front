@@ -2,7 +2,7 @@ import { createStyles, Theme } from "@material-ui/core";
 
 export type Createlogin = ("root"|"paper"|"avatar"|"Bouton"
 |"GrisAlign"|"titleConnexion"|"reseauButton"|"Connexion"
-|"titleMessage"|"Motdepasseoublie") ;;
+|"titleMessage"|"Motdepasseoublie");
 
 const createStylesLogin= (theme: Theme) => createStyles<Createlogin, {}>({
   root:{

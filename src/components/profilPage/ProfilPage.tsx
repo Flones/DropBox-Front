@@ -12,7 +12,7 @@ class ProfilPage extends PureComponent<P & WithStyles<CreateProfil>, S> {
 
     return (
        <div>
-           <p className={classes.root}>Page de rénitialisation du mot de passe</p>
+           <p className={classes.root}>Ma page de profil</p>
        </div>
       )
   }

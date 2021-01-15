@@ -1,4 +1,4 @@
-import { createStyles, Theme } from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
 
 export type CreateRegister = ("root"|"BorderPaper" |"paper" |"avatar"|"form"|"submit"|"centerButton" 
 |"titleInscription"|"titleConnexion"|"Connexion") ;
@@ -56,3 +56,4 @@ const createStylesRegister= (theme: Theme) => createStyles<CreateRegister, {}>({
 });
 
 export default  createStylesRegister
+
