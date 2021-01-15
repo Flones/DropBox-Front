@@ -95,11 +95,8 @@ const  LoginPage  = ()  => {
                       </Grid>
                       <h2 className={classes.titleConnexion}>Connexion✍</h2>
                   </Grid>
-                  <span>
                     {/* {err && showErrmsg(err)}  
                     {success && showSuccessmsg(success)} */}
-                    
-                  </span>
                   <form  onSubmit={onSubmitForm} noValidate autoComplete="off">
                   <Grid item xs={12}>
                   <TextField 

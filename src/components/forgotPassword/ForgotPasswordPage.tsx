@@ -54,8 +54,8 @@ const forgotPassword = async (e:any) => {
         <div className={classes.titleInscription}>Mot de passe oublié</div>
         </Typography>
         <span>
-            {err && showErrmsg(err)}
-            {success && showSuccessmsg(success)}
+            {/* {err && showErrmsg(err)}
+            {success && showSuccessmsg(success)} */}
         </span>
         <form onSubmit={forgotPassword} className={classes.form} noValidate >
           <Grid container spacing={3}>

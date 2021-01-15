@@ -22,7 +22,6 @@ const stylesNotification = makeStyles({
 
 const classes = stylesNotification()
 
-
 // pour les msgs d'erreurs'
 export const  showErrmsg = (msg: any) => {
     return <div className={classes.errMsg}> {msg} </div>
